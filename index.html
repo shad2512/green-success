@@ -29,7 +29,11 @@
     }
     h2 {
       font-size: 1.5em;
-      margin-top: 0;
+      margin-top: 0.5em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 0.3em;
     }
   </style>
 </head>
@@ -37,16 +41,24 @@
   <div class="card">
     <h1>✅ Ticket Verified</h1>
     <h2 id="event-name">Welcome to your event!</h2>
+    <p id="ticket-id"></p>
   </div>
 
   <script>
-    // Display event name from the QR code link
+    // Get event name and ticket ID from the URL query parameters
     const params = new URLSearchParams(window.location.search);
     const event = params.get("event");
+    const ticketID = params.get("id");
+
     if (event) {
       document.getElementById("event-name").textContent = `You have a valid ticket for "${event}" 🎟️`;
+    }
+
+    if (ticketID) {
+      document.getElementById("ticket-id").textContent = `Ticket ID: ${ticketID}`;
     }
   </script>
 </body>
 </html>
+
 
