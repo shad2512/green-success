@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Verified</title>
+  <style>
+    body {
+      background-color: #2ecc71; /* Bright green */
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+    .card {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>✅ Ticket Verified</h1>
+    <h2 id="event-name">Welcome to your event!</h2>
+  </div>
+
+  <script>
+    // Display the event name from the QR code link
+    const params = new URLSearchParams(window.location.search);
+    const event = params.get("event");
+    if (event) {
+      document.getElementById("event-name").textContent = `You have a valid ticket for "${event}" 🎟️`;
+    }
+  </script>
+</body>
+</html>
